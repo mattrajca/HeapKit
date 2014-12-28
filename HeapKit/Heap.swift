@@ -82,8 +82,8 @@ public class Heap<T where T: Comparable, T: Hashable> {
 		elementsToPositions[elementB] = a
 	}
 	
-	public func count() -> Int {
-		return array.count
+	public var isEmpty: Bool {
+		return array.count == 0
 	}
 	
 	public func insert(element: T) {
