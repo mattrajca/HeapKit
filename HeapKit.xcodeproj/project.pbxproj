@@ -12,6 +12,8 @@
 		C96DD4971A4FC56100ACD024 /* HeapKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DD4961A4FC56100ACD024 /* HeapKitTests.swift */; };
 		C96DD4A11A4FC57E00ACD024 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DD4A01A4FC57E00ACD024 /* Heap.swift */; };
 		C96DD4A21A4FC57E00ACD024 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DD4A01A4FC57E00ACD024 /* Heap.swift */; };
+		C98191071A5078A1000CD3CE /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98191061A5078A1000CD3CE /* Graph.swift */; };
+		C9B69B961A4FCDB100AA1666 /* dijkstraData.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9B69B951A4FCDB100AA1666 /* dijkstraData.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 		C96DD4951A4FC56100ACD024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C96DD4961A4FC56100ACD024 /* HeapKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapKitTests.swift; sourceTree = "<group>"; };
 		C96DD4A01A4FC57E00ACD024 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		C98191061A5078A1000CD3CE /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		C9B69B951A4FCDB100AA1666 /* dijkstraData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dijkstraData.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		C96DD4931A4FC56100ACD024 /* HeapKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				C98191061A5078A1000CD3CE /* Graph.swift */,
 				C96DD4961A4FC56100ACD024 /* HeapKitTests.swift */,
 				C96DD4941A4FC56100ACD024 /* Supporting Files */,
 			);
@@ -101,6 +106,7 @@
 		C96DD4941A4FC56100ACD024 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9B69B951A4FCDB100AA1666 /* dijkstraData.txt */,
 				C96DD4951A4FC56100ACD024 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -203,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B69B961A4FCDB100AA1666 /* dijkstraData.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98191071A5078A1000CD3CE /* Graph.swift in Sources */,
 				C96DD4971A4FC56100ACD024 /* HeapKitTests.swift in Sources */,
 				C96DD4A21A4FC57E00ACD024 /* Heap.swift in Sources */,
 			);
@@ -404,6 +412,7 @@
 				C96DD49C1A4FC56100ACD024 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C96DD49D1A4FC56100ACD024 /* Build configuration list for PBXNativeTarget "HeapKitTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +421,7 @@
 				C96DD49F1A4FC56100ACD024 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
