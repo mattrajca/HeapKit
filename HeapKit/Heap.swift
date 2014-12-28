@@ -6,8 +6,9 @@
 
 import Foundation
 
-public class Heap<T where T: Comparable, T: Hashable> {
+public class MinHeap<T: Hashable, W: Comparable> {
 	private var array = [T]()
+	private var weights = [W]()
 	private var elementsToPositions = Dictionary<T, Int>()
 	
 	private func _parentIndex(index: Int) -> Int {
@@ -28,8 +29,8 @@ public class Heap<T where T: Comparable, T: Hashable> {
 		while lastIndex > 0 {
 			let parentIndex = _parentIndex(lastIndex)
 			
-			if array[parentIndex] > array[lastIndex] {
-				_swapElementAtIndex(parentIndex, withElementAtIndex: lastIndex)
+			if weights[parentIndex] > weights[lastIndex] {
+				_swapElements(parentIndex, lastIndex)
 				lastIndex = parentIndex
 			}
 			else {
@@ -45,8 +46,8 @@ public class Heap<T where T: Comparable, T: Hashable> {
 			let leftChildIndex = _leftChildIndex(startIndex)
 			let rightChildIndex = _rightChildIndex(startIndex)
 			
-			let leftChild: T? = leftChildIndex < array.count ? array[leftChildIndex] : nil
-			let rightChild: T? = rightChildIndex < array.count ? array[rightChildIndex] : nil
+			let leftChild: W? = leftChildIndex < weights.count ? weights[leftChildIndex] : nil
+			let rightChild: W? = rightChildIndex < weights.count ? weights[rightChildIndex] : nil
 			
 			var smallerChildIndex: Int
 			
@@ -61,8 +62,8 @@ public class Heap<T where T: Comparable, T: Hashable> {
 				return
 			}
 			
-			if array[startIndex] > array[smallerChildIndex] {
-				_swapElementAtIndex(smallerChildIndex, withElementAtIndex: startIndex)
+			if weights[startIndex] > weights[smallerChildIndex] {
+				_swapElements(smallerChildIndex, startIndex)
 				startIndex = smallerChildIndex
 			}
 			else {
@@ -71,12 +72,18 @@ public class Heap<T where T: Comparable, T: Hashable> {
 		}
 	}
 	
-	private func _swapElementAtIndex(a: Int, withElementAtIndex b: Int) {
+	private func _swapElements(a: Int, _ b: Int) {
 		let elementA = array[a]
 		let elementB = array[b]
 		
+		let weightA = weights[a]
+		let weightB = weights[b]
+		
 		array[a] = elementB
 		array[b] = elementA
+		
+		weights[a] = weightB
+		weights[b] = weightA
 		
 		elementsToPositions[elementA] = b
 		elementsToPositions[elementB] = a
@@ -86,16 +93,18 @@ public class Heap<T where T: Comparable, T: Hashable> {
 		return array.count == 0
 	}
 	
-	public func insert(element: T) {
+	public func insert(element: T, weight: W) {
 		array.append(element)
+		weights.append(weight)
 		elementsToPositions[element] = array.count - 1
 		
 		_heapifyUp(array.count - 1)
 	}
 	
-	public func update(element: T) {
-		if let position = elementsToPositions[element] {
-			_heapifyUp(position)
+	public func update(element: T, weight: W) {
+		if let index = elementsToPositions[element] {
+			weights[index] = weight
+			_heapifyUp(index)
 		}
 	}
 	
@@ -110,7 +119,9 @@ public class Heap<T where T: Comparable, T: Hashable> {
 		
 		let minimum = array.first!
 		array[0] = array[array.count - 1]
+		weights[0] = weights[weights.count - 1]
 		array.removeAtIndex(array.count - 1)
+		weights.removeAtIndex(weights.count - 1)
 		
 		elementsToPositions.removeValueForKey(minimum)
 		
@@ -126,10 +137,10 @@ public class Heap<T where T: Comparable, T: Hashable> {
 }
 
 public func heapSort(inout array: [Int]) {
-	var heap = Heap<Int>()
+	var heap = MinHeap<Int, Int>()
 	
 	for element in array {
-		heap.insert(element)
+		heap.insert(element, weight: element)
 	}
 	
 	for n in 0..<array.count {
