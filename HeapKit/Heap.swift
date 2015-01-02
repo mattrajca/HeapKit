@@ -70,7 +70,7 @@ public class Heap<T: Hashable, W: Comparable> {
 				smallerChildIndex = leftChildIndex
 			}
 			else if leftChild != nil && rightChild != nil {
-				smallerChildIndex = leftChild < rightChild ? leftChildIndex : rightChildIndex
+				smallerChildIndex = isWeight(leftChild!, betterThanWeight: rightChild!) ? leftChildIndex : rightChildIndex
 			}
 			else {
 				// Both children are nil
