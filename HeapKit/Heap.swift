@@ -127,31 +127,31 @@ public class Heap<T: Hashable, W: Comparable> {
 		}
 	}
 	
-	public func findMinimum() -> T? {
+	public func findTop() -> T? {
 		return array.first
 	}
 	
-	public func removeMinimum() -> T? {
+	public func removeTop() -> T? {
 		if array.count == 0 {
 			return nil
 		}
 		
-		let minimum = array.first!
+		let top = array.first!
 		array[0] = array[array.count - 1]
 		weights[0] = weights[weights.count - 1]
 		array.removeAtIndex(array.count - 1)
 		weights.removeAtIndex(weights.count - 1)
 		
-		elementsToPositions.removeValueForKey(minimum)
+		elementsToPositions.removeValueForKey(top)
 		
 		if array.count == 0 {
-			return minimum
+			return top
 		}
 		
 		elementsToPositions[array[0]] = 0
 		_heapifyDown(0)
 		
-		return minimum
+		return top
 	}
 }
 
@@ -163,6 +163,6 @@ public func heapSort(inout array: [Int]) {
 	}
 	
 	for n in 0..<array.count {
-		array[n] = heap.removeMinimum()!
+		array[n] = heap.removeTop()!
 	}
 }
