@@ -108,6 +108,10 @@ public class Heap<T: Hashable, W: Comparable> {
 		return array.count == 0
 	}
 	
+	public var count: Int {
+		return array.count
+	}
+	
 	public func insert(element: T, weight: W) {
 		array.append(element)
 		weights.append(weight)
