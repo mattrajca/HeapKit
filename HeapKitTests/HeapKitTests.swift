@@ -8,8 +8,6 @@
 import XCTest
 
 class HeapKitTests: XCTestCase {
-	private var _graph: Graph!
-	
 	private func _loadGraph() -> Graph {
 		let bundle = NSBundle(forClass: HeapKitTests.self)
 		let graphURL = bundle.URLForResource("dijkstraData", withExtension: "txt")
@@ -53,11 +51,8 @@ class HeapKitTests: XCTestCase {
 		return Graph(nodes: nodes, weights: weights)
 	}
 	
-	override func setUp() {
-		_graph = _loadGraph()
-	}
-	
 	func testDijkstra() {
+		let _graph = _loadGraph()
 		let paths = _graph.findShortestPaths(fromIndex: 1)
 		
 		let indices = [7, 37, 59, 82, 99, 115, 133, 165, 188, 197]
