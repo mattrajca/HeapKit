@@ -39,7 +39,7 @@ class Graph {
 		heap.insert(sourceIndex, weight: 0)
 		
 		while !heap.isEmpty {
-			let index = heap.removeMinimum()!
+			let index = heap.removeTop()!
 			visited[index] = true
 			
 			if let neighbors = nodes[index] {
