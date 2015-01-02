@@ -52,8 +52,8 @@ class HeapKitTests: XCTestCase {
 	}
 	
 	func testDijkstra() {
-		let _graph = _loadGraph()
-		let paths = _graph.findShortestPaths(fromIndex: 1)
+		let graph = _loadGraph()
+		let paths = graph.findShortestPaths(fromIndex: 1)
 		
 		let indices = [7, 37, 59, 82, 99, 115, 133, 165, 188, 197]
 		let correctValues = [2599, 2610, 2947, 2052, 2367, 2399, 2029, 2442, 2505, 3068]
