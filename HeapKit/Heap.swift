@@ -4,8 +4,6 @@
 //  Copyright (c) 2014 Matt Rajca. All rights reserved.
 //
 
-import Foundation
-
 public class MinHeap<T: Hashable, W: Comparable> : Heap<T, W> {
 	override func isWeight(weight: W, betterThanWeight otherWeight: W) -> Bool {
 		return weight < otherWeight
@@ -25,7 +23,7 @@ public class Heap<T: Hashable, W: Comparable> {
 	
 	/* For subclasses */
 	func isWeight(weight: W, betterThanWeight otherWeight: W) -> Bool {
-		fatalError("This method must be overridden") 
+		fatalError("This method must be overridden")
 	}
 	
 	private func _parentIndex(index: Int) -> Int {
