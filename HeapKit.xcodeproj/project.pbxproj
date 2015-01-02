@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C96DD48A1A4FC56100ACD024 /* HeapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C96DD4891A4FC56100ACD024 /* HeapKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C96DD4901A4FC56100ACD024 /* HeapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96DD4841A4FC56100ACD024 /* HeapKit.framework */; };
 		C96DD4971A4FC56100ACD024 /* HeapKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DD4961A4FC56100ACD024 /* HeapKitTests.swift */; };
 		C96DD4A11A4FC57E00ACD024 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DD4A01A4FC57E00ACD024 /* Heap.swift */; };
 		C96DD4A21A4FC57E00ACD024 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DD4A01A4FC57E00ACD024 /* Heap.swift */; };
@@ -50,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96DD4901A4FC56100ACD024 /* HeapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
