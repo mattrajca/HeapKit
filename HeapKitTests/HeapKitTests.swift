@@ -127,9 +127,7 @@ class HeapKitTests: XCTestCase {
 			medians.append(lowHeap.findTop()!)
 		}
 		
-		var medianSum = medians.reduce(0, combine: { (u, t) in
-			return u + t
-		})
+		let medianSum = medians.reduce(0, combine: { (u, t) in u + t })
 		
 		XCTAssertEqual(medianSum % 10000, 1213, "Incorrect sum")
 	}
