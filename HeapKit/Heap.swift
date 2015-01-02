@@ -6,10 +6,27 @@
 
 import Foundation
 
-public class MinHeap<T: Hashable, W: Comparable> {
+public class MinHeap<T: Hashable, W: Comparable> : Heap<T, W> {
+	override func isWeight(weight: W, betterThanWeight otherWeight: W) -> Bool {
+		return weight < otherWeight
+	}
+}
+
+public class MaxHeap<T: Hashable, W: Comparable> : Heap<T, W> {
+	override func isWeight(weight: W, betterThanWeight otherWeight: W) -> Bool {
+		return weight > otherWeight
+	}
+}
+
+public class Heap<T: Hashable, W: Comparable> {
 	private var array = [T]()
 	private var weights = [W]()
 	private var elementsToPositions = Dictionary<T, Int>()
+	
+	/* For subclasses */
+	func isWeight(weight: W, betterThanWeight otherWeight: W) -> Bool {
+		fatalError("This method must be overridden") 
+	}
 	
 	private func _parentIndex(index: Int) -> Int {
 		return (index - 1) / 2
@@ -29,7 +46,7 @@ public class MinHeap<T: Hashable, W: Comparable> {
 		while lastIndex > 0 {
 			let parentIndex = _parentIndex(lastIndex)
 			
-			if weights[parentIndex] > weights[lastIndex] {
+			if isWeight(weights[lastIndex], betterThanWeight: weights[parentIndex]) {
 				_swapElements(parentIndex, lastIndex)
 				lastIndex = parentIndex
 			}
@@ -62,7 +79,7 @@ public class MinHeap<T: Hashable, W: Comparable> {
 				return
 			}
 			
-			if weights[startIndex] > weights[smallerChildIndex] {
+			if isWeight(weights[smallerChildIndex], betterThanWeight: weights[startIndex]) {
 				_swapElements(smallerChildIndex, startIndex)
 				startIndex = smallerChildIndex
 			}
